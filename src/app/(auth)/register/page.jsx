@@ -9,30 +9,19 @@ import { authClient } from "@/lib/auth-client";
 export default function RegisterPage() {
   const router = useRouter();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
 
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage("");
 
-    const { name, email, password, confirmPassword } = formData;
+    const formData = new FormData(e.currentTarget);
+    const userData = Object.fromEntries(formData.entries());
+
+    const { name, email, password, confirmPassword } = userData;
 
     if (password.length < 8) {
       setErrorMessage("Password must be at least 8 characters.");
@@ -103,10 +92,8 @@ export default function RegisterPage() {
                 type="text"
                 autoComplete="name"
                 required
-                minLength={2}
+                minLength={3}
                 maxLength={100}
-                value={formData.name}
-                onChange={handleChange}
                 placeholder="Enter your full name"
                 className="w-full rounded-lg border border-border bg-canvas px-4 py-3 text-sm outline-none transition focus:border-brand"
               />
@@ -126,8 +113,6 @@ export default function RegisterPage() {
                 type="email"
                 autoComplete="email"
                 required
-                value={formData.email}
-                onChange={handleChange}
                 placeholder="you@example.com"
                 className="w-full rounded-lg border border-border bg-canvas px-4 py-3 text-sm outline-none transition focus:border-brand"
               />
@@ -148,8 +133,6 @@ export default function RegisterPage() {
                 autoComplete="new-password"
                 required
                 minLength={8}
-                value={formData.password}
-                onChange={handleChange}
                 placeholder="At least 8 characters"
                 className="w-full rounded-lg border border-border bg-canvas px-4 py-3 text-sm outline-none transition focus:border-brand"
               />
@@ -169,8 +152,6 @@ export default function RegisterPage() {
                 type="password"
                 autoComplete="new-password"
                 required
-                value={formData.confirmPassword}
-                onChange={handleChange}
                 placeholder="Re-enter your password"
                 className="w-full rounded-lg border border-border bg-canvas px-4 py-3 text-sm outline-none transition focus:border-brand"
               />

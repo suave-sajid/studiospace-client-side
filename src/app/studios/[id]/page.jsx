@@ -8,6 +8,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import StudioGallery from "@/components/studios/StudioGallary";
+import BookingForm from "@/components/studios/BookingForm";
 
 
 async function getStudio(id) {
@@ -196,12 +197,13 @@ export default async function StudioDetailsPage({ params }) {
               </div>
             </div>
 
-            <button
-              disabled
-              className="mt-6 w-full cursor-not-allowed rounded-xl bg-brand px-5 py-3 font-semibold text-white opacity-60"
-            >
-              Booking coming soon
-            </button>
+            <aside className="rounded-2xl border border-border bg-surface p-6">
+              <BookingForm
+                studioId={studio._id}
+                hourlyRate={studio.hourlyRate}
+                securityDeposit={studio.securityDeposit}
+              />
+            </aside>
 
             <p className="mt-3 text-center text-xs text-muted">
               Booking functionality will be implemented in the next lessons.
@@ -210,7 +212,7 @@ export default async function StudioDetailsPage({ params }) {
         </div>
       </main>
 
-      
+
     </>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import StudioGallery from "@/components/studios/StudioGallary";
 import BookingForm from "@/components/studios/BookingForm";
+import StudioReviews from "@/components/reviews/StudioReviews";
 
 
 async function getStudio(id) {
@@ -61,6 +62,25 @@ export default async function StudioDetailsPage({ params }) {
   if (!studio) {
     notFound();
   }
+
+  async function getStudioReviews(id) {
+  try {
+    const response = await fetch(
+      `${process.env.API_URL}/api/reviews/studio/${id}`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) return [];
+
+    const result = await response.json();
+    return result.data || [];
+  } catch (error) {
+    console.error("Failed to fetch studio reviews:", error);
+    return [];
+  }
+}
+
+  const reviews = await getStudioReviews(id);
 
   return (
     <>
@@ -205,9 +225,7 @@ export default async function StudioDetailsPage({ params }) {
               />
             </aside>
 
-            <p className="mt-3 text-center text-xs text-muted">
-              Booking functionality will be implemented in the next lessons.
-            </p>
+            <StudioReviews reviews={reviews} />
           </aside>
         </div>
       </main>

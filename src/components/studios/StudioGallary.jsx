@@ -1,33 +1,58 @@
+"use client";
+
+import { useState } from "react";
+import { ImageOff } from "lucide-react";
+
 const StudioGallery = ({ image, gallery = [], title }) => {
   const images = [image, ...gallery].filter(Boolean);
+  const [activeImage, setActiveImage] = useState(0);
+
+  if (images.length === 0) {
+    return (
+      <div className="flex h-[300px] flex-col items-center justify-center gap-3 rounded-2xl bg-sage text-muted">
+        <ImageOff size={40} />
+        <p>No studio images available</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="grid grid-cols-1 gap-3 overflow-hidden rounded-2xl md:grid-cols-4">
-      <div className="md:col-span-3">
+    <section className="space-y-3">
+      {/* Main Image */}
+      <div className="overflow-hidden rounded-2xl bg-sage">
         <img
-          src={images[0]}
-          alt={title}
-          className="h-[280px] w-full object-cover sm:h-[380px] md:h-[440px]"
+          src={images[activeImage]}
+          alt={`${title} - Image ${activeImage + 1}`}
+          className="h-[280px] w-full object-cover sm:h-[400px] lg:h-[500px]"
         />
       </div>
 
-      <div className="hidden flex-col gap-3 md:col-span-1 md:flex">
-        {images.slice(1, 3).map((src, index) => (
-          <img
-            key={`${src}-${index}`}
-            src={src}
-            alt={`${title} gallery ${index + 1}`}
-            className="h-[214px] w-full rounded-xl object-cover"
-          />
-        ))}
-
-        {images.length === 1 && (
-          <div className="flex h-full items-center justify-center rounded-xl bg-sage p-5 text-center text-sm text-muted">
-            More studio photos coming soon
-          </div>
-        )}
-      </div>
-    </div>
+      {/* Thumbnail Gallery */}
+      {images.length > 1 && (
+        <div className="flex gap-3 overflow-x-auto pb-2">
+          {images.map((src, index) => (
+            <button
+              key={`${src}-${index}`}
+              type="button"
+              onClick={() => setActiveImage(index)}
+              aria-label={`View image ${index + 1}`}
+              aria-pressed={activeImage === index}
+              className={`shrink-0 overflow-hidden rounded-xl border-2 transition ${
+                activeImage === index
+                  ? "border-brand"
+                  : "border-transparent opacity-70 hover:opacity-100"
+              }`}
+            >
+              <img
+                src={src}
+                alt={`${title} thumbnail ${index + 1}`}
+                className="h-20 w-28 object-cover sm:h-24 sm:w-36"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </section>
   );
 };
 

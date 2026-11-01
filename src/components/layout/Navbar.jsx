@@ -4,6 +4,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { Aperture, Menu, X } from "lucide-react";
 
+import { useRouter } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
+
 const navigationLinks = [
   { label: "Explore spaces", href: "/studios" },
   { label: "Categories", href: "/#categories" },
@@ -12,6 +15,28 @@ const navigationLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
+
+  const {
+    data: session,
+    isPending,
+  } = authClient.useSession();
+
+  const handleLogout = async () => {
+    try {
+      const { error } = await authClient.signOut();
+
+      if (error) {
+        throw new Error(error.message || "Logout failed.");
+      }
+
+      router.push("/");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-canvas/95 backdrop-blur-md">
@@ -44,21 +69,38 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden items-center gap-4 md:flex">
-          <Link
-            href="/login"
-            className="text-sm font-semibold text-ink transition hover:text-brand"
-          >
-            Log in
-          </Link>
+        {isPending ? (
+          <div className="h-9 w-24 animate-pulse rounded-lg bg-border" />
+        ) : session?.user ? (
+          <div className="flex items-center gap-3">
+            <span className="text-sm font-medium">
+              {session.user.name}
+            </span>
 
-          <Link
-            href="/register"
-            className="rounded-full bg-ink px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand"
-          >
-            Get started
-          </Link>
-        </div>
+            <button
+              onClick={handleLogout}
+              className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition hover:bg-canvas"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-3">
+            <Link
+              href="/login"
+              className="text-sm font-medium transition hover:text-brand"
+            >
+              Login
+            </Link>
+
+            <Link
+              href="/register"
+              className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            >
+              Get Started
+            </Link>
+          </div>
+        )}
 
         {/* Mobile Menu Button */}
         <button

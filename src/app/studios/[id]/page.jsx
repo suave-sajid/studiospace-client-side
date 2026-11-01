@@ -32,6 +32,27 @@ async function getStudio(id) {
   }
 }
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const studio = await getStudio(id);
+
+  if (!studio) {
+    return {
+      title: "Studio Not Found",
+    };
+  }
+
+  return {
+    title: studio.title,
+    description: studio.overview,
+    openGraph: {
+      title: `${studio.title} | StudioSpace`,
+      description: studio.overview,
+      images: studio.image ? [studio.image] : [],
+    },
+  };
+}
+
 export default async function StudioDetailsPage({ params }) {
   const { id } = await params;
   const studio = await getStudio(id);

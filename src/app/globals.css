@@ -74,3 +74,21 @@ a {
 #how-it-works {
   scroll-margin-top: 100px;
 }
+.form-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.625rem;
+  background: var(--canvas);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+.form-input:focus {
+  border-color: var(--brand);
+}
+
+.form-input::placeholder {
+  color: var(--muted);
+}

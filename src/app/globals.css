@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
   background: var(--canvas);
   color: var(--ink);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
 }
 
 button,
@@ -67,4 +67,9 @@ a {
 ::selection {
   background: var(--brand);
   color: white;
+}
+
+#categories,
+#how-it-works {
+  scroll-margin-top: 100px;
 }

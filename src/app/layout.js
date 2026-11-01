@@ -15,12 +15,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
+
   title: {
-    default: "StudioSpace | Space to Create",
+    default: "StudioSpace | Find Your Creative Space",
     template: "%s | StudioSpace",
   },
+
   description:
-    "Discover and book inspiring creative spaces for photography, filmmaking, podcasts, music, and more.",
+    "Discover and book photography studios, film stages, podcast lounges, music suites and creative spaces with StudioSpace.",
+
+  keywords: [
+    "Studio rental",
+    "Photography studio",
+    "Film studio",
+    "Podcast studio",
+    "Creative space",
+    "StudioSpace",
+  ],
+
+  openGraph: {
+    title: "StudioSpace | Find Your Creative Space",
+    description:
+      "Find inspiring creative spaces and bring your next project to life.",
+    siteName: "StudioSpace",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {

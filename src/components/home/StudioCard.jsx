@@ -4,6 +4,8 @@ import {
     Star,
     ArrowUpRight,
 } from "lucide-react";
+import WishlistButton from "@/components/wishlist/WishlistButton";
+
 
 export default function StudioCard({ studio }) {
     const {
@@ -21,32 +23,41 @@ export default function StudioCard({ studio }) {
         <article className="group overflow-hidden rounded-2xl border border-border bg-white transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-black/5">
 
             {/* Studio Image */}
-            <Link
-                href={`/studios/${_id}`}
-                className="relative block aspect-[4/3] overflow-hidden bg-sage"
-            >
-                {image ? (
-                    <img
-                        src={image}
-                        alt={title}
-                        loading="lazy"
-                        decoding="async"
-                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    />
-                ) : (
-                    <div className="flex h-full items-center justify-center text-sm text-muted">
-                        Studio image unavailable
-                    </div>
-                )}
 
-                <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink">
-                    {category}
-                </span>
+            {/* Studio Image */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl bg-sage">
 
-                <span className="absolute right-4 top-4 flex size-9 items-center justify-center rounded-full bg-white text-ink shadow-sm transition group-hover:bg-brand group-hover:text-white">
-                    <ArrowUpRight size={18} />
-                </span>
-            </Link>
+                <Link
+                    href={`/studios/${_id}`}
+                    className="absolute inset-0 block"
+                >
+                    {image ? (
+                        <img
+                            src={image}
+                            alt={title}
+                            loading="lazy"
+                            decoding="async"
+                            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                        />
+                    ) : (
+                        <div className="flex h-full items-center justify-center text-sm text-muted">
+                            Studio image unavailable
+                        </div>
+                    )}
+
+                    <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink">
+                        {category}
+                    </span>
+
+                    <span className="absolute right-16 top-4 flex size-9 items-center justify-center rounded-full bg-white text-ink shadow-sm transition group-hover:bg-brand group-hover:text-white">
+                        <ArrowUpRight size={18} />
+                    </span>
+                </Link>
+
+                <WishlistButton studioId={_id} />
+
+            </div>
+
 
             {/* Studio Information */}
             <div className="p-5">

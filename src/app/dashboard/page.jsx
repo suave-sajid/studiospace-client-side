@@ -6,6 +6,8 @@ import Link from "next/link";
 
 import { authClient } from "@/lib/auth-client";
 
+import DashboardStats from "@/components/dashboard/DashboardStats";
+
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -45,6 +47,8 @@ export default function DashboardPage() {
               Manage your creative spaces and bookings.
             </p>
           </div>
+
+          <DashboardStats />
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             <DashboardCard

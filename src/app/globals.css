@@ -14,7 +14,8 @@
   --sage: #dce7df;
 }
 
-@theme inline {
+/* Correct Tailwind v4 theme configuration override */
+@theme {
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
 
@@ -27,8 +28,8 @@
   --color-border: var(--border);
   --color-sage: var(--sage);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
 }
 
 * {
@@ -45,7 +46,7 @@ body {
   min-height: 100vh;
   background: var(--canvas);
   color: var(--ink);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-sans); /* Use the mapped utility token */
 }
 
 button,

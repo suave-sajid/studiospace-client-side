@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactCompiler: true,
-  // Completely removed the experimental turbopack rules block
+  images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "**",
+                pathname: "/**",
+            },
+        ],
+    },
+  
 };
 
 export default nextConfig;

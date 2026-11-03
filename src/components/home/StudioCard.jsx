@@ -17,10 +17,10 @@ export default function StudioCard({ studio }) {
     } = studio;
 
     return (
-        <article className="group overflow-hidden rounded-2xl border border-border bg-white transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-black/5">
+        <article className="group overflow-hidden rounded-2xl border border-border bg-surface transition duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/20">
 
             {/* Studio Image */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-sage">
+            <div className="relative aspect-[4/3] overflow-hidden bg-canvas">
 
                 <Link
                     href={`/studios/${_id}`}
@@ -40,7 +40,7 @@ export default function StudioCard({ studio }) {
                         </div>
                     )}
 
-                    <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink">
+                    <span className="absolute left-4 top-4 rounded-full border border-border/50 bg-surface/95 px-3 py-1.5 text-xs font-semibold text-ink backdrop-blur-sm">
                         {category}
                     </span>
                 </Link>

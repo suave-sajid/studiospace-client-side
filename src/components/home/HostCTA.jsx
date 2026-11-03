@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,7 +16,7 @@ export default function HostCTA() {
   return (
     <section className="bg-canvas px-5 py-20 sm:py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-[2rem] bg-ink px-7 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
+        <div className="relative overflow-hidden rounded-[2rem] bg-[#191919] px-7 py-14 text-white sm:px-12 lg:px-16 lg:py-20">
 
           {/* Decorative circles */}
           <div className="pointer-events-none absolute -right-24 -top-32 size-96 rounded-full border border-white/10" />
@@ -30,13 +31,13 @@ export default function HostCTA() {
                 FOR STUDIO OWNERS
               </div>
 
-              <h2 className="max-w-xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+              <h2 className="max-w-xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
                 Your space has
                 <br />
                 <span className="text-brand">a story to tell.</span>
               </h2>
 
-              <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
+              <p className="mt-6 max-w-lg text-sm leading-7 text-white/70 sm:text-base">
                 Turn your creative space into an opportunity.
                 Connect with creators, showcase your studio,
                 and grow your rental business.
@@ -52,8 +53,9 @@ export default function HostCTA() {
             </div>
 
             {/* Benefits */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-7 backdrop-blur-sm sm:p-9">
-              <p className="mb-7 text-sm font-semibold tracking-wide text-white/50">
+            <div className="rounded-2xl border border-border bg-white p-7 text-[#191919] shadow-lg shadow-black/5 dark:border-white/10 dark:bg-[#252a33] dark:text-white dark:shadow-black/20 sm:p-9">
+
+              <p className="mb-7 text-sm font-semibold tracking-wide text-muted dark:text-gray-400">
                 WHY HOST WITH STUDIOSPACE
               </p>
 
@@ -65,15 +67,15 @@ export default function HostCTA() {
                       className="mt-0.5 shrink-0 text-brand"
                     />
 
-                    <p className="text-sm leading-6 text-white/85">
+                    <p className="text-sm leading-6 text-[#191919] dark:text-white">
                       {benefit}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-9 border-t border-white/10 pt-6">
-                <p className="text-xs leading-6 text-white/45">
+              <div className="mt-9 border-t border-border pt-6 dark:border-white/10">
+                <p className="text-xs leading-6 text-muted dark:text-gray-400">
                   Create your listing and introduce your space
                   to the creative community.
                 </p>

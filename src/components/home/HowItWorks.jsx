@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import {
   Search,
@@ -36,10 +37,9 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="border-t border-border bg-white py-20 sm:py-24"
+      className="border-t border-border bg-canvas py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
-
         {/* Heading */}
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <p className="mb-3 text-xs font-bold tracking-[0.2em] text-brand">
@@ -73,13 +73,12 @@ export default function HowItWorks() {
         <div className="mt-14 text-center">
           <Link
             href="/studios"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 text-sm font-semibold text-white transition hover:bg-brand"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-dark px-7 py-4 text-sm font-semibold text-white transition hover:bg-brand"
           >
             Find your space
             <ArrowRight size={17} />
           </Link>
         </div>
-
       </div>
     </section>
   );

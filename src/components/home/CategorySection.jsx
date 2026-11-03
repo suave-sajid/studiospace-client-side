@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import {
   Camera,
@@ -52,7 +53,7 @@ export default function CategorySection() {
   return (
     <section
       id="categories"
-      className="border-t border-border bg-white py-20 sm:py-24"
+      className="border-t border-border bg-canvas py-20 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
 

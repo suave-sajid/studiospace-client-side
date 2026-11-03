@@ -1,3 +1,4 @@
+
 import StudioCard from "./StudioCard";
 
 async function getFeaturedStudios() {
@@ -29,7 +30,7 @@ export default async function FeaturedStudioList() {
     console.error("Featured studios error:", error);
 
     return (
-      <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-sm text-red-700">
+      <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-sm text-red-700 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-300">
         Unable to load studios right now. Please try again later.
       </div>
     );
@@ -37,7 +38,7 @@ export default async function FeaturedStudioList() {
 
   if (studios.length === 0) {
     return (
-      <div className="rounded-2xl border border-border bg-white px-6 py-16 text-center">
+      <div className="rounded-2xl border border-border bg-surface px-6 py-16 text-center">
         <h3 className="text-xl font-bold text-ink">
           No studios available yet
         </h3>

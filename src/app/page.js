@@ -48,8 +48,8 @@ export default function Home() {
     <main className="min-h-screen bg-canvas text-ink">
       {/* Navigation */}
      <HeroBanner></HeroBanner>
-     <CategorySection></CategorySection>
       <FeaturedStudios></FeaturedStudios>
+     <CategorySection></CategorySection>
       <HowItWorks></HowItWorks>
       <HostCTA></HostCTA>
     </main>

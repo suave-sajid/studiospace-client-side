@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Search, MapPin, ArrowRight } from "lucide-react";
 
@@ -5,7 +6,7 @@ export default function SearchBar() {
   return (
     <form
       action="/studios"
-      className="flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-border bg-white p-3 shadow-lg shadow-black/5 sm:flex-row sm:items-center"
+      className="flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-border bg-surface p-3 shadow-lg shadow-black/5 sm:flex-row sm:items-center"
     >
       {/* Search input */}
       <div className="flex min-w-0 flex-1 items-center gap-3 px-3">

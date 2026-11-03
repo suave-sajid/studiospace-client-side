@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -10,10 +11,10 @@ export default function CategoryCard({
   return (
     <Link
       href={`/studios?category=${encodeURIComponent(category)}`}
-      className="group rounded-2xl border border-border bg-canvas p-6 transition duration-300 hover:-translate-y-1 hover:border-brand hover:bg-white hover:shadow-lg"
+      className="group rounded-2xl border border-border bg-canvas p-6 transition duration-300 hover:-translate-y-1 hover:border-brand hover:bg-surface hover:shadow-lg"
     >
       {/* Icon */}
-      <div className="mb-8 flex size-12 items-center justify-center rounded-xl bg-sage transition duration-300 group-hover:bg-brand group-hover:text-white">
+      <div className="mb-8 flex size-12 items-center justify-center rounded-xl bg-sage text-ink transition duration-300 group-hover:bg-brand group-hover:text-white">
         <Icon size={23} strokeWidth={1.8} />
       </div>
 

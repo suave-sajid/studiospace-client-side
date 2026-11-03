@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 
 import { authClient } from "@/lib/auth-client";
+import ThemeToggle from "@/components/layout/ThemeToggle";
 
 const publicLinks = [
   { label: "Home", href: "/" },
@@ -29,36 +30,12 @@ const publicLinks = [
 ];
 
 const workspaceLinks = [
-  {
-    label: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutDashboard,
-  },
-  {
-    label: "Add New Studio",
-    href: "/add-studio",
-    icon: PlusCircle,
-  },
-  {
-    label: "My Studio Listings",
-    href: "/my-listings",
-    icon: Building2,
-  },
-  {
-    label: "My Bookings",
-    href: "/my-bookings",
-    icon: CalendarDays,
-  },
-  {
-    label: "Booking Requests",
-    href: "/received-bookings",
-    icon: ClipboardList,
-  },
-  {
-    label: "Wishlist",
-    href: "/wishlist",
-    icon: Heart,
-  },
+  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+  { label: "Add New Studio", href: "/add-studio", icon: PlusCircle },
+  { label: "My Studio Listings", href: "/my-listings", icon: Building2 },
+  { label: "My Bookings", href: "/my-bookings", icon: CalendarDays },
+  { label: "Booking Requests", href: "/received-bookings", icon: ClipboardList },
+  { label: "Wishlist", href: "/wishlist", icon: Heart },
 ];
 
 export default function Navbar() {
@@ -72,7 +49,6 @@ export default function Navbar() {
   const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const isLoggedIn = Boolean(session?.user);
-
   const user = session?.user;
 
   const userName = user?.name || "My Account";
@@ -96,7 +72,6 @@ export default function Navbar() {
 
   // Active route indicator
   const isActive = (href) => {
-    // Hash links are section navigation, not page routes
     if (href.includes("#")) return false;
 
     if (href === "/") {
@@ -147,7 +122,7 @@ export default function Navbar() {
 
     return (
       <div
-        className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-sage font-bold text-ink ${sizeClass}`}
+        className={`flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-brand/10 font-bold text-brand ${sizeClass}`}
       >
         {userImage ? (
           <img
@@ -200,6 +175,9 @@ export default function Navbar() {
           ))}
         </div>
 
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
         {/* Desktop Account Actions */}
         <div className="hidden shrink-0 items-center gap-3 lg:flex">
           {isPending ? (
@@ -235,7 +213,7 @@ export default function Navbar() {
 
               {isWorkspaceOpen && (
                 <div className="absolute right-0 top-full z-50 w-64 pt-3">
-                  <div className="overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-xl">
+                  <div className="overflow-hidden rounded-2xl border border-border bg-surface p-2 shadow-xl shadow-black/10 dark:shadow-black/30">
 
                     {/* User Information */}
                     <div className="flex items-center gap-3 border-b border-border px-3 py-3">
@@ -281,12 +259,10 @@ export default function Navbar() {
                         type="button"
                         onClick={handleLogout}
                         disabled={isLoggingOut}
-                        className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50 disabled:opacity-50"
+                        className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-950/30 disabled:opacity-50"
                       >
                         <LogOut size={17} />
-                        {isLoggingOut
-                          ? "Logging out..."
-                          : "Logout"}
+                        {isLoggingOut ? "Logging out..." : "Logout"}
                       </button>
                     </div>
                   </div>
@@ -318,7 +294,7 @@ export default function Navbar() {
           onClick={() => setIsMobileOpen((previous) => !previous)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileOpen}
-          className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-ink transition hover:bg-white lg:hidden"
+          className="flex size-10 shrink-0 items-center justify-center rounded-xl border border-border bg-surface text-ink transition hover:bg-canvas lg:hidden"
         >
           {isMobileOpen ? <X size={21} /> : <Menu size={21} />}
         </button>
@@ -326,7 +302,7 @@ export default function Navbar() {
 
       {/* Mobile / Tablet Navigation Panel */}
       {isMobileOpen && (
-        <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-border bg-canvas shadow-xl lg:hidden">
+        <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-72px)] overflow-y-auto border-b border-border bg-canvas shadow-xl dark:shadow-black/30 lg:hidden">
           <div className="mx-auto max-w-7xl space-y-6 px-5 py-6 sm:px-8">
 
             {/* Public Navigation */}
@@ -344,7 +320,7 @@ export default function Navbar() {
                     className={`flex items-center rounded-xl px-3 py-3 text-sm font-semibold transition ${
                       isActive(link.href)
                         ? "bg-brand/10 text-brand"
-                        : "text-ink hover:bg-white"
+                        : "text-ink hover:bg-surface"
                     }`}
                   >
                     {link.label}
@@ -386,7 +362,7 @@ export default function Navbar() {
                         className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium transition ${
                           isActive(link.href)
                             ? "bg-brand/10 text-brand"
-                            : "text-ink hover:bg-white"
+                            : "text-ink hover:bg-surface"
                         }`}
                       >
                         <Icon size={18} />
@@ -404,7 +380,7 @@ export default function Navbar() {
                 <Link
                   href="/login"
                   onClick={closeMenus}
-                  className="rounded-full border border-border px-4 py-3 text-center text-sm font-semibold text-ink transition hover:bg-white"
+                  className="rounded-full border border-border px-4 py-3 text-center text-sm font-semibold text-ink transition hover:bg-surface"
                 >
                   Login
                 </Link>
@@ -426,7 +402,7 @@ export default function Navbar() {
                   type="button"
                   onClick={handleLogout}
                   disabled={isLoggingOut}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-red-200 px-4 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50 disabled:opacity-50"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-red-200 px-4 py-3 text-sm font-semibold text-red-600 transition hover:bg-red-50 dark:border-red-900/50 dark:text-red-400 dark:hover:bg-red-950/30 disabled:opacity-50"
                 >
                   <LogOut size={17} />
                   {isLoggingOut ? "Logging out..." : "Logout"}

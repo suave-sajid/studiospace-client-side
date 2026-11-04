@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import {
   ArrowRight,
@@ -6,7 +7,6 @@ import {
   Mic2,
   Music2,
   Users,
-  Target,
   Sparkles,
   Heart,
   ShieldCheck,
@@ -68,24 +68,24 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <main className="overflow-hidden bg-[#F7F5F0] text-[#191919]">
+    <main className="overflow-hidden bg-canvas text-ink transition-colors duration-300">
 
       {/* HERO */}
       <section className="relative px-5 pb-20 pt-20 sm:px-8 sm:pt-28 lg:px-12 lg:pb-28">
         <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
 
           <div>
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#E5E1D8] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#E86B42]">
+            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand">
               <Sparkles size={14} />
               About StudioSpace
             </span>
 
             <h1 className="max-w-2xl text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
               A space for every
-              <span className="text-[#E86B42]"> creative idea.</span>
+              <span className="text-brand"> creative idea.</span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-[#6B6B63] sm:text-lg">
+            <p className="mt-7 max-w-xl text-base leading-8 text-muted sm:text-lg">
               StudioSpace connects creators with inspiring spaces.
               Whether you are capturing a moment, producing a film,
               recording a podcast, or creating something new, find
@@ -95,7 +95,7 @@ export default function AboutPage() {
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 href="/studios"
-                className="inline-flex items-center gap-2 rounded-full bg-[#E86B42] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#CF5632]"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-7 py-4 text-sm font-semibold text-white transition hover:bg-brand-dark"
               >
                 Explore Studios
                 <ArrowRight size={17} />
@@ -103,7 +103,7 @@ export default function AboutPage() {
 
               <Link
                 href="/register"
-                className="inline-flex items-center gap-2 rounded-full border border-[#E5E1D8] bg-white px-7 py-4 text-sm font-semibold transition hover:border-[#191919]"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-7 py-4 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand"
               >
                 Join StudioSpace
               </Link>
@@ -112,7 +112,7 @@ export default function AboutPage() {
 
           {/* IMAGE */}
           <div className="relative">
-            <div className="absolute -right-5 -top-5 h-32 w-32 rounded-full bg-[#DCE7DF] blur-2xl" />
+            <div className="absolute -right-5 -top-5 h-32 w-32 rounded-full bg-sage blur-2xl opacity-70" />
 
             <div className="relative overflow-hidden rounded-[2rem]">
               <img
@@ -121,8 +121,8 @@ export default function AboutPage() {
                 className="h-[380px] w-full object-cover sm:h-[480px]"
               />
 
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/30 bg-white/90 p-5 backdrop-blur-md">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E86B42]">
+              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-white/90 p-5 text-[#191919] backdrop-blur-md dark:border-white/10 dark:bg-[#1b1e25]/90 dark:text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
                   The StudioSpace Vision
                 </p>
                 <p className="mt-2 text-lg font-semibold">
@@ -131,18 +131,18 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="absolute -bottom-7 -left-5 -z-0 h-24 w-24 rounded-full border-[14px] border-[#E86B42]/20" />
+            <div className="absolute -bottom-7 -left-5 -z-0 h-24 w-24 rounded-full border-[14px] border-brand/20" />
           </div>
 
         </div>
       </section>
 
       {/* MISSION */}
-      <section className="bg-white px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section className="border-y border-border bg-surface px-5 py-20 transition-colors duration-300 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
 
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E86B42]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
               Our Mission
             </span>
 
@@ -151,7 +151,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="space-y-5 text-base leading-8 text-[#6B6B63]">
+          <div className="space-y-5 text-base leading-8 text-muted">
             <p>
               Finding the right creative space should not be complicated.
               Creators often spend valuable time searching for suitable
@@ -178,7 +178,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl">
 
           <div className="mx-auto mb-14 max-w-2xl text-center">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E86B42]">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
               Explore Possibilities
             </span>
 
@@ -186,7 +186,7 @@ export default function AboutPage() {
               Spaces for every kind of creator.
             </h2>
 
-            <p className="mt-5 leading-7 text-[#6B6B63]">
+            <p className="mt-5 leading-7 text-muted">
               From photography to music production, discover spaces
               designed to support different creative workflows.
             </p>
@@ -199,23 +199,23 @@ export default function AboutPage() {
               return (
                 <div
                   key={space.title}
-                  className="group rounded-3xl border border-[#E5E1D8] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-[#E86B42]/40 hover:shadow-xl hover:shadow-black/5"
+                  className="group rounded-3xl border border-border bg-surface p-7 transition duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/20"
                 >
-                  <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F7F5F0] text-[#E86B42] transition group-hover:bg-[#E86B42] group-hover:text-white">
+                  <div className="mb-7 flex h-14 w-14 items-center justify-center rounded-2xl bg-canvas text-brand transition group-hover:bg-brand group-hover:text-white">
                     <Icon size={25} />
                   </div>
 
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-ink">
                     {space.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-[#6B6B63]">
+                  <p className="mt-3 text-sm leading-7 text-muted">
                     {space.description}
                   </p>
 
                   <Link
                     href="/studios"
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#E86B42]"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand transition hover:gap-3"
                   >
                     Explore spaces
                     <ArrowRight size={15} />
@@ -253,7 +253,7 @@ export default function AboutPage() {
                     <Icon size={23} />
                   </div>
 
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-lg font-semibold text-white">
                     {value.title}
                   </h3>
 
@@ -270,7 +270,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#E86B42] px-7 py-16 text-center text-white sm:px-14 sm:py-20">
+        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-brand px-7 py-16 text-center text-white sm:px-14 sm:py-20">
 
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/75">
             Your Next Creative Journey
@@ -288,7 +288,7 @@ export default function AboutPage() {
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <Link
               href="/studios"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#191919] transition hover:bg-[#F7F5F0]"
+              className="!bg-white !text-brand inline-flex items-center gap-2 rounded-full px-7 py-4 text-sm font-semibold transition hover:!bg-gray-100"
             >
               Find a Studio
               <ArrowRight size={17} />

@@ -46,7 +46,7 @@ export default function StudioPagination({ pagination, searchParams = {} }) {
           </span>
         )}
 
-        <span className="rounded-xl bg-ink px-4 py-2.5 text-sm font-semibold text-white">
+        <span className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm font-medium text-ink transition hover:bg-canvas">
           {page}
         </span>
 

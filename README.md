@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# StudioSpace – Creative Studio Space Marketplace
 
-## Getting Started
+**Live Website:** [Insert your deployed website URL]
 
-First, run the development server:
+StudioSpace is a peer-to-peer marketplace that connects creative professionals with studio space owners. Photographers, filmmakers, podcasters, musicians, and other creators can discover and book suitable creative spaces, while studio owners can list and manage their properties.
+
+##  Key Features
+
+- **Browse Creative Studios:** Explore different creative spaces, including photography studios, podcast lounges, recording studios, workshops, and sound stages.
+- **Authentication:** Secure user authentication with email and Google sign-in using Better Auth.
+- **Studio Management:** Studio owners can add, update, and delete their studio listings.
+- **Booking System:** Users can book available studios and manage their bookings.
+- **Booking Management:** Studio owners can view and manage booking requests, including updating booking statuses.
+- **Wishlist:** Save favorite studios and easily access them later.
+- **Reviews & Ratings:** Customers can submit reviews and ratings for completed bookings.
+- **Responsive Design:** Fully responsive interface for desktop, tablet, and mobile devices.
+- **Notifications:** Interactive toast notifications and user-friendly feedback using Sonner.
+
+##  Technology Stack
+
+**Frontend:**
+- Next.js (App Router)
+- React
+- JavaScript
+- Tailwind CSS
+- Better Auth
+- Lucide React
+- Sonner
+
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+
+**Tools & Deployment:**
+- Git & GitHub
+- Vercel (Frontend)
+- Render (Backend)
+
+##  Local Installation & Setup
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Client Repository
+
+```bash
+git clone YOUR_CLIENT_GITHUB_REPOSITORY_URL
+cd studiospace-client
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the project root and configure the required environment variables.
+
+```env
+NEXT_PUBLIC_API_URL=YOUR_BACKEND_API_URL
+```
+
+Add the remaining Better Auth and application environment variables required by your project.
+
+### 4. Start the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 5. Backend Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The frontend requires the StudioSpace backend to be running.
 
-## Learn More
+Clone the server repository, install dependencies, configure its `.env` file with the MongoDB connection string, database name, authentication secrets, and required application settings.
 
-To learn more about Next.js, take a look at the following resources:
+Then start the backend using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Refer to the server repository's README for its complete configuration.
 
-## Deploy on Vercel
+##  Examiner Test Credentials
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Use the following credentials to test the application.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Test User Account:**
+
+- Email: `YOUR_EXAMINER_EMAIL`
+- Password: `YOUR_EXAMINER_PASSWORD`
+
+**Note:** Replace these placeholders with the actual working examiner account credentials before submission.
+
+##  Project Structure
+
+```text
+studiospace-client/
+├── public/
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── lib/
+│   └── ...
+├── .env.local
+├── .gitignore
+├── next.config.mjs
+├── package.json
+└── README.md
+```
+
+## 🎯 Project Purpose
+
+StudioSpace aims to simplify the process of discovering, listing, and booking creative studio spaces through a user-friendly digital marketplace.
+
+Built as a full-stack web development project with a focus on authentication, CRUD operations, API integration, booking management, and responsive UI design.

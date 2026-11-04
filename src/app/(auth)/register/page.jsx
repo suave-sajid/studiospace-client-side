@@ -177,13 +177,13 @@ export default function RegisterPage() {
               type="password"
               autoComplete="new-password"
               required
-              minLength={6}
+              minLength={8}
               placeholder="Create a password"
               className="w-full rounded-lg border border-border bg-canvas px-4 py-3 text-sm outline-none transition focus:border-brand"
             />
 
             <p className="mt-1 text-xs text-muted">
-              Minimum 6 characters, including uppercase and lowercase letters.
+              Minimum 8 characters, including uppercase and lowercase letters.
             </p>
           </div>
 
